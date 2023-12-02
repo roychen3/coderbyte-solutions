@@ -23,16 +23,14 @@
 
 function CamelCase(str) {
   const words = str.split(/[^\w]+/);
-
-  for (let i = 0; i < words.length; i++) {
-    if (i !== 0) {
-      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-    } else {
-      words[i] = words[i].toLowerCase();
-    }
-  }
-
-  return words.join('');
+  return words
+    .map((word, index) => {
+      if (index === 0) {
+        return word.toLowerCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join('');
 }
 
 // Test cases
