@@ -29,6 +29,7 @@
  *
  */
 
+// solution 1
 function isRepeatContinuously(str) {
   if (str.length < 2) return false;
   return new Set(str.split('')).size === 1;
@@ -61,7 +62,48 @@ function CountingAnagrams(str) {
   return repeatContinuouslyAnagramsWords.length + uniqueAnagramsWords.length;
 }
 
+// solution 2
+function isRepeatContinuously(str) {
+  if (str.length < 2) return false;
+  return new Set(str.split('')).size === 1;
+}
+function sortWord(str) {
+  return str.split('').sort().join('');
+}
+
+function CountingAnagrams(str) {
+  const words = str.split(' ');
+
+  let i = 0;
+  let j = 1;
+  const wordsSet = new Set();
+  while (i < words.length) {
+    const currentWord = words[i];
+    const checkWord = words[j];
+    if (!checkWord) break;
+
+    if (currentWord === checkWord && isRepeatContinuously(checkWord)) {
+      wordsSet.add(currentWord);
+    } else if (
+      currentWord !== checkWord &&
+      sortWord(currentWord) === sortWord(checkWord)
+    ) {
+      wordsSet.add(sortWord(currentWord));
+    }
+
+    if (j >= words.length - 1) {
+      i += 1;
+      j = i + 1;
+    } else {
+      j += 1;
+    }
+  }
+
+  return wordsSet.size;
+}
+
 // Test cases
 console.log(CountingAnagrams('cars are very cool so are arcs and my os')); // Output: 2
 console.log(CountingAnagrams('aa aa odg dog gdo')); // Output: 2
 console.log(CountingAnagrams('a c b c run urn urn')); // Output: 1
+console.log(CountingAnagrams('cool run dd a c b c dd urn urn looc loco lcoo')); // Output: 3
