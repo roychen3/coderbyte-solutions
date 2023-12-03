@@ -17,8 +17,30 @@
  *
  */
 
+// solution 1
 function DistinctList(arr) {
   return arr.length - [...new Set(arr)].length;
+}
+
+// solution 2
+function DistinctList(arr) {
+  // Sort the array to make it easier to find duplicates
+  arr.sort((a, b) => a - b);
+
+  let duplicates = 0;
+  let i = 0;
+
+  // Traverse through the sorted array to find duplicates
+  while (i < arr.length - 1) {
+    if (arr[i] === arr[i + 1]) {
+      duplicates += 1;
+      i++;
+    } else {
+      i++;
+    }
+  }
+
+  return duplicates;
 }
 
 // Test cases
