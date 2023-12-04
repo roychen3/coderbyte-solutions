@@ -43,9 +43,10 @@ function FindIntersection(strArr) {
     }
   }
 
-  return Array.from(set, String);
+  return set.size === 0 ? false : Array.from(set, String).join(',');
 }
 
 // Test cases
 console.log(FindIntersection(['1, 3, 4, 7, 13', '1, 2, 4, 13, 15'])); // Output: 1,4,13
 console.log(FindIntersection(['1, 3, 9, 10, 17, 18', '1, 4, 9, 10'])); // Output: 1,9,10
+console.log(FindIntersection(['1, 3, 5, 7', '2, 4, 8, 8, 10'])); // Output: false
