@@ -19,7 +19,7 @@
 
 // solution 1
 function DistinctList(arr) {
-  return arr.length - [...new Set(arr)].length;
+  return arr.length - new Set(arr).size;
 }
 
 // solution 2
