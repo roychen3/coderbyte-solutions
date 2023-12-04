@@ -28,13 +28,13 @@ function ChangingSequence(arr) {
   let increasing = false;
   let decreasing = false;
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > arr[i - 1]) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < arr[i + 1]) {
       increasing = true;
-      if (decreasing) return i - 1;
-    } else if (arr[i] < arr[i - 1]) {
+      if (decreasing) return i;
+    } else if (arr[i] > arr[i + 1]) {
       decreasing = true;
-      if (increasing) return i - 1;
+      if (increasing) return i;
     }
   }
 
