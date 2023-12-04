@@ -23,23 +23,23 @@
 function CaesarCipher(str, num) {
   const alphabetLength = 26;
 
-  const alphaStrUpp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const alphabetUppStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const upperTest = /[A-Z]/;
 
-  const alphaStrLow = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabetLowStr = 'abcdefghijklmnopqrstuvwxyz';
   const lowerTest = /[a-z]/;
 
   let result = '';
 
   for (let i = 0; i < str.length; i++) {
     if (upperTest.test(str[i])) {
-      const currentLetterIdx = alphaStrUpp.indexOf(str[i]);
+      const currentLetterIdx = alphabetUppStr.indexOf(str[i]);
       const newLetterIdx = (currentLetterIdx + num) % alphabetLength;
-      result += alphaStrUpp[newLetterIdx];
+      result += alphabetUppStr[newLetterIdx];
     } else if (lowerTest.test(str[i])) {
-      const currentLetterIdx = alphaStrLow.indexOf(str[i]);
+      const currentLetterIdx = alphabetLowStr.indexOf(str[i]);
       const newLetterIdx = (currentLetterIdx + num) % alphabetLength;
-      result += alphaStrLow[newLetterIdx];
+      result += alphabetLowStr[newLetterIdx];
     } else {
       result += str[i];
     }
