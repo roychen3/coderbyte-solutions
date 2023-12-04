@@ -41,13 +41,13 @@
  *
  */
 
-// cheating
+// solution
 function LRUCache(strArr) {
   let cache = [];
   for (let char of strArr) {
     const idx = cache.indexOf(char);
 
-    if (idx === -1) {  
+    if (idx === -1) {
       cache.push(char);
     } else {
       cache = cache.filter((cacheChar) => cacheChar !== char);
