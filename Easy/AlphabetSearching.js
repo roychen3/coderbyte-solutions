@@ -17,7 +17,7 @@
  *
  * Input 2: abc123456kmo
  * Output 2: false
- * 
+ *
  */
 
 function AlphabetSearching(str) {
@@ -26,12 +26,7 @@ function AlphabetSearching(str) {
   if (!alphabetArray) return false;
   if (alphabetArray.length < alphabetLength) return false;
 
-  const alphabet = new Set();
-  for (let i = 0; i < alphabetArray.length; i++) {
-    if (alphabet.size === alphabetLength) break;
-    const charCode = alphabetArray[i];
-    alphabet.add(charCode);
-  }
+  const alphabet = new Set(alphabetArray);
   return alphabet.size === alphabetLength;
 }
 
