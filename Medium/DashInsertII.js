@@ -23,18 +23,22 @@ function DashInsertII(str) {
   const isEven = (num) => parseInt(num) % 2 === 0;
 
   let result = '';
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 1; i < str.length; i++) {
+    const prev = str[i - 1];
     const current = str[i];
-    const next = str[i + 1];
 
-    result += current;
+    result += prev;
 
-    if (next !== undefined && current !== '0' && next !== '0') {
-      if (isEven(current) && isEven(next)) {
+    if (current !== '0' && prev !== '0') {
+      if (isEven(current) && isEven(prev)) {
         result += '*';
-      } else if (isOdd(current) && isOdd(next)) {
+      } else if (isOdd(current) && isOdd(prev)) {
         result += '-';
       }
+    }
+
+    if (i + 1 === str.length) {
+      result += current;
     }
   }
 
