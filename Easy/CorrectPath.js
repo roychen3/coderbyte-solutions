@@ -32,7 +32,6 @@
  */
 
 function CorrectPath(str) {
-  let limit = 0;
   while (true) {
     const route = [];
     const tracePos = [];
@@ -69,9 +68,6 @@ function CorrectPath(str) {
     if (x === 5 && y === 5 && answer === 1) {
       return route.join('');
     }
-
-    if (limit > 1000) break;
-    limit++;
   }
 }
 
